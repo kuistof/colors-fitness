@@ -169,21 +169,8 @@ function handleSubmit(){
   form.method='POST';
   form.action='https://docs.google.com/forms/d/e/1FAIpQLSfF2qKXwB0TnoIghIHVbFKC60m6ERmWxFgEN4pDCZ2osMMg7g/formResponse';
   form.target='hidden_iframe';
-  var field=document.createElement('input');
-  field.type='hidden';
-  field.name='entry.2044717375';
-  field.value=email;
-  form.appendChild(field);
-  var pageHistory=document.createElement('input');
-  pageHistory.type='hidden';
-  pageHistory.name='pageHistory';
-  pageHistory.value='0';
-  form.appendChild(pageHistory);
-  var fbzx=document.createElement('input');
-  fbzx.type='hidden';
-  fbzx.name='fbzx';
-  fbzx.value='-'+Math.random().toString().substr(2,19);
-  form.appendChild(fbzx);
+  var fields={'entry.2044717375':email,'fvv':'1','partialResponse':'[null,null,"4349232099297390205"]','pageHistory':'0','fbzx':'4349232099297390205','submissionTimestamp':Date.now()};
+  for(var name in fields){var f=document.createElement('input');f.type='hidden';f.name=name;f.value=fields[name];form.appendChild(f);}
   document.body.appendChild(form);
   form.submit();
   document.getElementById('formRow').style.display='none';
