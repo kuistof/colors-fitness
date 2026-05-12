@@ -162,8 +162,7 @@ function handleSubmit(){
   var email=input.value.trim();
   if(!email||email.indexOf('@')<1||email.indexOf('.')<3){input.focus();return}
   // Google Form silent submit — replace placeholders with your real IDs:
-  var url='https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse?entry.YOUR_ENTRY_ID='+encodeURIComponent(email)+'&submit=Submit';
-  fetch(url,{method:'POST',mode:'no-cors'}).catch(function(){});
+var url='https://docs.google.com/forms/d/e/1FAIpQLSfF2qKXwB0TnoIghIHVbFKC60m6ERmWxFgEN4pDCZ2osMMg7g/formResponse?entry.2044717375='+encodeURIComponent(email)+'&submit=Submit';  fetch(url,{method:'POST',mode:'no-cors'}).catch(function(){});
   document.getElementById('formRow').style.display='none';
   document.getElementById('formFine').style.display='none';
   document.getElementById('formSuccess').classList.add('show');
