@@ -174,6 +174,16 @@ function handleSubmit(){
   field.name='entry.2044717375';
   field.value=email;
   form.appendChild(field);
+  var pageHistory=document.createElement('input');
+  pageHistory.type='hidden';
+  pageHistory.name='pageHistory';
+  pageHistory.value='0';
+  form.appendChild(pageHistory);
+  var fbzx=document.createElement('input');
+  fbzx.type='hidden';
+  fbzx.name='fbzx';
+  fbzx.value='-'+Math.random().toString().substr(2,19);
+  form.appendChild(fbzx);
   document.body.appendChild(form);
   form.submit();
   document.getElementById('formRow').style.display='none';
