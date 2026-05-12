@@ -40,11 +40,11 @@ body::after{
 .top{display:flex;justify-content:space-between;align-items:center}
 .logo{
   font-family:var(--serif);font-size:1.05rem;font-weight:400;
-  letter-spacing:0.28em;text-transform:uppercase;color:var(--white);
+  letter-spacing:0.28em;text-trans:uppercase;color:var(--white);
 }
 .top-status{
   font-size:0.6rem;font-weight:400;letter-spacing:0.14em;
-  text-transform:uppercase;color:var(--dim);
+  text-trans:uppercase;color:var(--dim);
 }
 .hero{
   flex:1;display:flex;flex-direction:column;
@@ -75,12 +75,13 @@ body::after{
   font-size:0.65rem;font-weight:400;letter-spacing:0.12em;
   text-transform:uppercase;color:var(--dim);margin-bottom:0.9rem;text-align:center;
 }
+.form-container{min-height:90px}
 .form-row{display:flex;gap:0.5rem}
 .form-row input{
   flex:1;min-width:0;
   background:var(--input-bg);border:1px solid var(--faint);
   border-radius:8px;padding:0.75rem 1rem;
-  color:var(--white);font-family:var(--sans);font-size:0.84rem;
+  color:var(--white);font-family:var(--sans);font-size:1rem;
   font-weight:300;letter-spacing:0.02em;outline:none;
   transition:border-color 0.3s;
 }
@@ -98,8 +99,8 @@ body::after{
   font-size:0.58rem;color:var(--faint);text-align:center;
   margin-top:0.75rem;letter-spacing:0.03em;font-weight:300;
 }
-.form-success{display:none;text-align:center;padding:0.5rem 0}
-.form-success.show{display:block}
+.form-success{display:none;text-align:center;padding:0.5rem 0;min-height:90px;align-items:center;justify-content:center;flex-direction:column}
+.form-success.show{display:flex}
 .form-success p{
   font-family:var(--serif);font-size:1.1rem;font-weight:300;
   font-style:italic;letter-spacing:0.02em;
@@ -123,8 +124,7 @@ body::after{
 @keyframes fade-in{from{opacity:0}to{opacity:1}}
 @media(max-width:420px){
   .page{padding:2rem 1.25rem}
-  .form-row{flex-direction:column}
-  .form-row button{padding:0.8rem}
+  .form-row input{font-size:1rem}
 }
 </style>
 </head>
@@ -138,19 +138,20 @@ body::after{
     <div class="hero-line"></div>
     <h1>A new fitness experience —<br><em>made for Berlin</em></h1>
     <p class="hero-sub">New concept. New spaces. Launching soon across Berlin.</p>
-    <div class="form-wrap">
-      <div class="form-label">Be the first to know</div>
-      <div class="form-row" id="formRow">
-        <input type="email" id="emailInput" placeholder="Your email" required>
-        <button onclick="handleSubmit()">Notify me</button>
-      </div>
-      <div class="form-fine" id="formFine">No spam. Launch alert and early access only.</div>
-      <div class="form-success" id="formSuccess">
-        <p>You're on the list.</p>
-        <div class="sub">We'll be in touch when it's time.</div>
-      </div>
+   <div class="form-wrap">
+  <div class="form-label">Be the first to know</div>
+  <div class="form-container">
+    <div class="form-row" id="formRow">
+      <input type="email" id="emailInput" placeholder="Your email" required>
+      <button onclick="handleSubmit()">Notify me</button>
+    </div>
+    <div class="form-fine" id="formFine">No spam. Launch alert and early access only.</div>
+    <div class="form-success" id="formSuccess">
+      <p>You're on the list.</p>
+      <div class="sub">We'll be in touch when it's time.</div>
     </div>
   </div>
+</div>
   <div class="bottom">
     <div class="bottom-left">Coming soon</div>
     <div class="bottom-right">&copy; 2026</div>
