@@ -161,8 +161,10 @@ function handleSubmit(){
   var input=document.getElementById('emailInput');
   var email=input.value.trim();
   if(!email||email.indexOf('@')<1||email.indexOf('.')<3){input.focus();return}
-  var img=new Image();
-  img.src='https://script.google.com/macros/s/AKfycbywddz7RMKpnxhRMssvI9MzQtH9eVbvjqj8Szg_11lRw8u1BMpBPGum-LDq6wElYzG-/exec?email='+encodeURIComponent(email);
+  var iframe=document.createElement('iframe');
+  iframe.style.display='none';
+  iframe.src='https://script.google.com/macros/s/AKfycbywddz7RMKpnxhRMssvI9MzQtH9eVbvjqj8Szg_11lRw8u1BMpBPGum-LDq6wElYzG-/exec?email='+encodeURIComponent(email);
+  document.body.appendChild(iframe);
   document.getElementById('formRow').style.display='none';
   document.getElementById('formFine').style.display='none';
   document.getElementById('formSuccess').classList.add('show');
