@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COLORS — Coming Soon</title>
+<meta name="description" content="A new fitness experience — made for Berlin. Be the first to know.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#111110;
+  --white:#ebe9e4;
+  --cream:#d4d0c8;
+  --dim:#706b63;
+  --faint:#302d29;
+  --input-bg:#1c1b19;
+  --btn:#ebe9e4;
+  --btn-text:#111110;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Manrope',sans-serif;
+}
+html{height:100%}
+body{
+  font-family:var(--sans);background:var(--bg);color:var(--white);
+  min-height:100%;min-height:100dvh;display:flex;flex-direction:column;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+::selection{background:rgba(235,233,228,0.2)}
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 60% 45% at 50% 42%,rgba(235,233,228,0.018) 0%,transparent 100%);
+}
+.page{
+  position:relative;z-index:1;flex:1;
+  display:flex;flex-direction:column;justify-content:space-between;
+  max-width:560px;width:100%;margin:0 auto;padding:2.5rem 1.5rem;
+}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{
+  font-family:var(--serif);font-size:1.05rem;font-weight:400;
+  letter-spacing:0.28em;text-transform:uppercase;color:var(--white);
+}
+.top-status{
+  font-size:0.6rem;font-weight:400;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--dim);
+}
+.hero{
+  flex:1;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  text-align:center;padding:3rem 0;
+}
+.hero-line{
+  width:1px;height:40px;
+  background:linear-gradient(to bottom,transparent,var(--faint),transparent);
+  margin-bottom:2.2rem;animation:fade-in 1.5s ease both;
+}
+.hero h1{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(2rem,5.5vw,3rem);
+  line-height:1.3;letter-spacing:0.015em;
+  margin-bottom:1rem;animation:fade-up 1s 0.2s ease both;
+}
+.hero h1 em{font-style:italic;font-weight:300}
+.hero-sub{
+  font-size:0.8rem;font-weight:300;color:var(--dim);
+  line-height:1.8;letter-spacing:0.025em;
+  max-width:320px;margin-bottom:3rem;animation:fade-up 1s 0.4s ease both;
+}
+
+/* FORM */
+.form-wrap{width:100%;max-width:360px;animation:fade-up 1s 0.55s ease both}
+.form-label{
+  font-size:0.65rem;font-weight:400;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--dim);margin-bottom:0.9rem;text-align:center;
+}
+.form-row{display:flex;gap:0.5rem}
+.form-row input{
+  flex:1;min-width:0;
+  background:var(--input-bg);border:1px solid var(--faint);
+  border-radius:8px;padding:0.75rem 1rem;
+  color:var(--white);font-family:var(--sans);font-size:0.84rem;
+  font-weight:300;letter-spacing:0.02em;outline:none;
+  transition:border-color 0.3s;
+}
+.form-row input:focus{border-color:var(--dim)}
+.form-row input::placeholder{color:var(--dim)}
+.form-row button{
+  background:var(--btn);color:var(--btn-text);border:none;
+  border-radius:8px;padding:0.75rem 1.3rem;
+  font-family:var(--sans);font-size:0.72rem;font-weight:500;
+  letter-spacing:0.06em;text-transform:uppercase;
+  cursor:pointer;transition:opacity 0.2s;white-space:nowrap;
+}
+.form-row button:hover{opacity:0.85}
+.form-fine{
+  font-size:0.58rem;color:var(--faint);text-align:center;
+  margin-top:0.75rem;letter-spacing:0.03em;font-weight:300;
+}
+.form-success{display:none;text-align:center;padding:0.5rem 0}
+.form-success.show{display:block}
+.form-success p{
+  font-family:var(--serif);font-size:1.1rem;font-weight:300;
+  font-style:italic;letter-spacing:0.02em;
+}
+.form-success .sub{
+  font-size:0.68rem;color:var(--dim);font-family:var(--sans);
+  font-style:normal;margin-top:0.4rem;font-weight:300;
+}
+
+/* BOTTOM */
+.bottom{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  animation:fade-in 1s 0.7s ease both;
+}
+.bottom-left,.bottom-right{
+  font-size:0.56rem;color:var(--faint);
+  letter-spacing:0.08em;text-transform:uppercase;font-weight:400;
+}
+
+@keyframes fade-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@media(max-width:420px){
+  .page{padding:2rem 1.25rem}
+  .form-row{flex-direction:column}
+  .form-row button{padding:0.8rem}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div class="logo">Colors</div>
+    <div class="top-status">Berlin</div>
+  </div>
+  <div class="hero">
+    <div class="hero-line"></div>
+    <h1>A new fitness experience —<br><em>made for Berlin</em></h1>
+    <p class="hero-sub">New concept. New spaces. Launching soon across Berlin.</p>
+    <div class="form-wrap">
+      <div class="form-label">Be the first to know</div>
+      <div class="form-row" id="formRow">
+        <input type="email" id="emailInput" placeholder="Your email" required>
+        <button onclick="handleSubmit()">Notify me</button>
+      </div>
+      <div class="form-fine" id="formFine">No spam. Launch alert and early access only.</div>
+      <div class="form-success" id="formSuccess">
+        <p>You're on the list.</p>
+        <div class="sub">We'll be in touch when it's time.</div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="bottom-left">Coming soon</div>
+    <div class="bottom-right">&copy; 2026</div>
+  </div>
+</div>
+<script>
+function handleSubmit(){
+  var input=document.getElementById('emailInput');
+  var email=input.value.trim();
+  if(!email||email.indexOf('@')<1||email.indexOf('.')<3){input.focus();return}
+  // Google Form silent submit — replace placeholders with your real IDs:
+  var url='https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse?entry.YOUR_ENTRY_ID='+encodeURIComponent(email)+'&submit=Submit';
+  fetch(url,{method:'POST',mode:'no-cors'}).catch(function(){});
+  document.getElementById('formRow').style.display='none';
+  document.getElementById('formFine').style.display='none';
+  document.getElementById('formSuccess').classList.add('show');
+}
+document.getElementById('emailInput').addEventListener('keydown',function(e){if(e.key==='Enter')handleSubmit()});
+</script>
+</body>
+</html>
