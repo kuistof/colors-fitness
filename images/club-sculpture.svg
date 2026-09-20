@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="880" viewBox="0 0 720 880">
+<defs>
+ <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#62645e"/><stop offset=".25" stop-color="#222722"/><stop offset=".7" stop-color="#080b09"/><stop offset="1" stop-color="#40443d"/></linearGradient>
+ <radialGradient id="face" cx=".28" cy=".2" r=".9"><stop stop-color="#464b42"/><stop offset=".45" stop-color="#272c25"/><stop offset="1" stop-color="#101510"/></radialGradient>
+ <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffae77"/><stop offset=".3" stop-color="#f47b49"/><stop offset=".7" stop-color="#c34e27"/><stop offset="1" stop-color="#72311f"/></linearGradient>
+ <linearGradient id="metal"><stop stop-color="#4c514b"/><stop offset=".35" stop-color="#b9bdb0"/><stop offset=".48" stop-color="#e3e1ce"/><stop offset=".6" stop-color="#676f61"/><stop offset="1" stop-color="#1c241b"/></linearGradient>
+ <filter id="shadow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="25"/></filter>
+ <filter id="texture"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".055"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+</defs>
+<ellipse cx="374" cy="730" rx="200" ry="42" fill="#060a06" opacity=".7" filter="url(#shadow)"/>
+<g transform="translate(365 428) rotate(-27) skewY(8)">
+ <g transform="translate(47 50)"><ellipse rx="224" ry="280" fill="url(#edge)" stroke="#656c5e" stroke-width="1"/><ellipse rx="209" ry="263" fill="none" stroke="#070d08" stroke-width="6"/></g>
+ <g transform="translate(28 27)"><ellipse rx="223" ry="280" fill="url(#orange)"/><ellipse rx="207" ry="262" fill="none" stroke="#ffb07c" stroke-opacity=".45" stroke-width="2"/></g>
+ <ellipse rx="221" ry="279" fill="url(#edge)" stroke="#7d8170" stroke-width="1.5"/>
+ <ellipse cx="-10" cy="-7" rx="206" ry="260" fill="url(#face)" stroke="#111910" stroke-width="4"/>
+ <ellipse cx="-10" cy="-7" rx="184" ry="236" fill="none" stroke="#8c9380" stroke-opacity=".3" stroke-width="1.5"/>
+ <ellipse cx="-10" cy="-7" rx="175" ry="226" fill="none" stroke="#070e08" stroke-width="7"/>
+ <ellipse cx="-10" cy="-7" rx="111" ry="149" fill="none" stroke="#777e6b" stroke-opacity=".19" stroke-width="2"/>
+ <ellipse cx="-10" cy="-7" rx="89" ry="119" fill="url(#edge)" stroke="#0d130c" stroke-width="3"/>
+ <ellipse cx="-10" cy="-7" rx="50" ry="66" fill="url(#metal)"/>
+ <ellipse cx="-12" cy="-8" rx="30" ry="43" fill="#070d08" stroke="#848b77" stroke-width="2"/>
+ <path d="M-77-181 Q-8-211 63-182" fill="none" stroke="#a5aa96" stroke-opacity=".16" stroke-width="20"/>
+ <path d="M-78 175 Q-8 206 64 177" fill="none" stroke="#090f08" stroke-width="20"/>
+ <text x="-12" y="-166" text-anchor="middle" fill="#b3b6a6" font-family="Arial,sans-serif" font-size="27" font-weight="700" letter-spacing="7">COLORS</text>
+ <text x="-12" y="189" text-anchor="middle" fill="#898f7d" font-family="Arial,sans-serif" font-size="13" letter-spacing="5">ATHLETIC CLUB</text>
+ <ellipse cx="-10" cy="-7" rx="204" ry="257" fill="transparent" filter="url(#texture)"/>
+</g>
+</svg>
