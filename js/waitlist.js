@@ -1,8 +1,8 @@
-/* COLORS Waitlist: Same-Origin-POST als JSON. Erfolg erst nach Bestätigung der API.
+/* COLORS Waitlist: POST als JSON an die action des Formulars (Same-Origin-API oder Apps-Script-Web-App). Erfolg erst nach Bestätigung der API.
    Keine E-Mail in URL, Logs oder Analytics. Ohne JavaScript sendet das Formular klassisch per POST. */
 (function () {
   'use strict';
-  var forms = document.querySelectorAll('form.form[action="/api/waitlist"]');
+  var forms = document.querySelectorAll('form.form[data-waitlist]');
   Array.prototype.forEach.call(forms, function (form) {
     var status = form.querySelector('.form-status');
     var btn = form.querySelector('button[type="submit"]');
@@ -68,11 +68,16 @@
       };
       var ctrl = new AbortController();
       var timer = setTimeout(function () { ctrl.abort(); }, 12000);
-      fetch('/api/waitlist', {
+      var target = form.getAttribute('action') || '/api/waitlist';
+      // Apps Script beantwortet keinen CORS-Preflight; text/plain ist eine einfache Anfrage, der Body bleibt JSON.
+      var direct = /^https:\/\/script\.google\.com\//.test(target);
+      fetch(target, {
         method: 'POST',
-        headers: { 'content-type': 'application/json', accept: 'application/json' },
+        headers: direct ? { 'content-type': 'text/plain;charset=utf-8' } : { 'content-type': 'application/json', accept: 'application/json' },
         body: JSON.stringify(payload),
-        signal: ctrl.signal
+        signal: ctrl.signal,
+        redirect: 'follow',
+        credentials: 'omit'
       }).then(function (res) {
         clearTimeout(timer);
         return res.json().catch(function () { return {}; }).then(function (data) {

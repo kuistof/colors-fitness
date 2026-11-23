@@ -3,7 +3,14 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Frame-Options: DENY
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com https://c.clarity.ms https://c.bing.com; font-src 'self'; style-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.clarity.ms https://scripts.clarity.ms; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.clarity.ms; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://script.google.com; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com https://c.clarity.ms https://c.bing.com; font-src 'self'; style-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.clarity.ms https://scripts.clarity.ms; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.clarity.ms; upgrade-insecure-requests
 
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+# Cloudflare-Vorschauadressen nie indexieren; nur colors.fitness ist die öffentliche Adresse.
+https://colors-fitness.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:version.colors-fitness.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
