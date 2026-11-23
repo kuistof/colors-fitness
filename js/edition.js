@@ -29,6 +29,23 @@
     });
   }
 
+  // Saubere Adresse: Sprünge zu Abschnitten scrollen, ohne ein #… in der Adresszeile zu hinterlassen.
+  const clean = () => { if (location.hash) history.replaceState(null, '', location.pathname + location.search); };
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Element) || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const link = event.target.closest('a[href^="#"]');
+    const id = link && decodeURIComponent(link.getAttribute('href').slice(1));
+    const target = id && document.getElementById(id);
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView();
+    if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+    clean();
+  });
+  // Von einer Unterseite oder einem geteilten Link mit #…: Der Browser springt selbst, danach wird die Adresse bereinigt.
+  if (location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)))) setTimeout(clean, 600);
+
   // Abschnitte beim Scrollen einblenden.
   const revealables = document.querySelectorAll('[data-reveal]');
   if (reduced || !('IntersectionObserver' in window)) {
